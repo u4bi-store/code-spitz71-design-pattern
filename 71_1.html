@@ -13,6 +13,7 @@
             const Table = ( _=> {
 
                 // static private
+                const Private = Symbol();
 
                 return class{
                     /*
@@ -21,6 +22,11 @@
                         private methods                        
                     */
                     constructor(parent){
+                        
+                        if(typeof parent != 'string' || !parent) throw 'invalid param';
+                        
+                        this[Private] = { parent };
+
                         console.log('constructor', parent);
 
                     }
