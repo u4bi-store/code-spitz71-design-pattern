@@ -20,10 +20,23 @@
                         public methods
                         private methods                        
                     */
+                    constructor(parent){
+                        console.log('constructor', parent);
+
+                    }
+
+                    load(dataUrl){
+                        console.log('load', dataUrl);
+
+                    }
 
                 };
             
             })();
+
+
+            const table = new Table('#data');
+            table.load('assets/71_1.json');
 
         </script>
     </body>
