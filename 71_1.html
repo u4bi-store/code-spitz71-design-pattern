@@ -32,6 +32,25 @@
                     }
 
                     load(dataUrl){
+
+                        /* fatch
+                        
+                            https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+                            https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+                        */
+                        fetch(dataUrl)
+                            .then( resp =>{
+                                
+                                return resp.json();
+
+                            }).then( json => {
+                                
+                                console.log('json object', json);
+
+                                this._render();
+
+                            });
+
                         console.log('load', dataUrl);
 
                     }
@@ -47,7 +66,7 @@
 
 
             const table = new Table('#data');
-            table.load('assets/71_1.json');
+            table.load('model/71_1.json');
 
         </script>
     </body>
