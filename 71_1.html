@@ -22,7 +22,14 @@
                         private methods                        
                     */
                     constructor(parent){
-                        
+                        /* Hika Maeng : 여러분 코드 습관을 들이실 때 무조건 validation이 있고
+                                        기본적으로 개발을 할 때 throw를 해야겠다라고 생각하세요
+                                        ...
+                                        ...
+                                        그래서 throw는 런타임 언어에서 기본적인 안전장치
+
+                                        https://youtu.be/ymG40FJe2cM?t=12m10s
+                        */
                         if(typeof parent != 'string' || !parent) throw 'invalid param';
                         
                         this[Private] = { parent };
