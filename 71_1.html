@@ -13,7 +13,8 @@
             const Table = ( _=> {
 
                 // static private
-                const Private = Symbol();
+                const Private = Symbol(),
+                      render  = Symbol();
 
                 return class{
                     /*
@@ -54,7 +55,7 @@
                                 
                                 console.log('json object', json);
 
-                                this._render();
+                                this[render]();
 
                             });
 
@@ -62,7 +63,7 @@
 
                     }
                     
-                    _render(){ // private method
+                    [render](){ // private(symbol) method 
                         console.log('table render');
 
                     }
