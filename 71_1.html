@@ -111,8 +111,8 @@
                         // [2] table 생성
                         // [3] 캡션을 title로
                         // [4] header를 thead로
-                        // items를 tr로
-                        // 부모에 table삽입
+                        // [5] items를 tr로
+                        // [6] 부모에 table삽입
                         
                         const fields = this[Private],
                               parent = document.querySelector(fields.parent);
@@ -145,9 +145,34 @@
                         //
                         );
 
+                        /* [6] */
+                        parent.appendChild(
+                            fields.items.reduce( (table, row) => {
+                                console.log(table, row);
+
+                                /* [5] */
+                                table.appendChild(
+                                    row.reduce( (tr, data) => {
+                                        console.log(tr, data);
+
+                                        const td = document.createElement('td');
+                                
+                                        td.innerHTML = data;
+                                        tr.appendChild(td);
+
+                                        return tr;
+                                        
+                                    }, document.createElement('tr'))
+                                );
+
+                                return table;
+
+                            }, table)
+                        );
+
                     }
 
-                };
+                }
             
             })();
 
