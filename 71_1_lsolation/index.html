@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 71 1 - loader.js renderer.js </title>
+        <script src="Loader.js"></script>
+        <script src="Renderer.js"></script>        
+    </head>
+    <body>
+
+        <script>
+
+            const loader = new Loader('../model/71_1.json');
+            
+            loader.load((json) => {
+                
+                const renderer = new Renderer('#data');
+
+                renderer.setData(json);
+                renderer.render();
+
+            });
+        
+        </script>
+    </body>
+</html>
