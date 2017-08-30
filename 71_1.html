@@ -74,11 +74,22 @@
                     
                     */
                     async load(dataUrl){
-                        
-                        const response = await fetch(dataUrl),
-                              json = await response.json();
 
+                        const response = await fetch(dataUrl);
+                        if(!response.ok) throw "invaild response";
+
+                        const json = await response.json();
                         console.log('json object', json);
+                        
+                        const {title, header, items} = json;
+                        if(!items.length) throw "no items";
+
+                        /* assign
+                           
+                           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+                        
+                        */
+                        Object.assign(this[Private], {title, header, items});
 
                         this[render]();
 
@@ -86,7 +97,6 @@
 
                     [render](){ // private(symbol) method 
                         console.log('table render');
-
                     }
 
                 };
