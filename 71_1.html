@@ -108,8 +108,8 @@
                         */
 
                         // [1] 부모, 데이터 체크 
-                        // table 생성
-                        // 캡션을 title로
+                        // [2] table 생성
+                        // [3] 캡션을 title로
                         // header를 thead로
                         // items를 tr로
                         // 부모에 table삽입
@@ -120,6 +120,13 @@
                         /* [1] */
                         if(!parent) throw 'invaild parent';                        
                         if(!fields.items || !fields.items.length) throw 'invaild data';                        
+                        /* [2] */
+                        const table = document.createElement('table');
+                        /* [3] */
+                        const caption = document.createElement('caption');
+                        caption.innerHTML = fields.title;
+                        
+                        table.appendChild(caption);
 
                     }
 
