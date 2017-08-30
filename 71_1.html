@@ -107,12 +107,19 @@
                                         https://youtu.be/ymG40FJe2cM?t=26m30s
                         */
 
-                        // 부모, 데이터 체크
+                        // [1] 부모, 데이터 체크 
                         // table 생성
                         // 캡션을 title로
                         // header를 thead로
                         // items를 tr로
                         // 부모에 table삽입
+                        
+                        const fields = this[Private],
+                              parent = document.querySelector(fields.parent);
+
+                        /* [1] */
+                        if(!parent) throw 'invaild parent';                        
+                        if(!fields.items || !fields.items.length) throw 'invaild data';                        
 
                     }
 
